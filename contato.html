@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="contato.css">
+    <script>
+        // Função para redirecionar após envio e passar os dados via GET
+        function enviarFormulario(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Obter os valores dos campos
+            const nome = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('message').value;
+
+            // Montar a URL com os parâmetros dos dados
+            const url = `dados.html?name=${encodeURIComponent(nome)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(mensagem)}`;
+
+            // Redirecionar para a página de dados com os parâmetros
+            window.location.href = url; // Passando os dados para dados.html
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-form">
+            <h1>Entre em Contato</h1>
+            <form onsubmit="enviarFormulario(event)">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Digite sua mensagem" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por Felipe da Silva</p>
+    </footer>
+</body>
+</html>
